@@ -1,11 +1,12 @@
 import React from "react";
-import { Text, View } from "react-native";
-import { Navigation } from "react-native-navigation";
+import { Button, Text, View } from "react-native";
 
-const CRUD = () => {
+const CRUD = ({navigation}) => {
   return (
     <View>
       <Text>CRUD page</Text>
+      <Button title="See idols" onPress={() => navigation.navigate('get')}></Button>
+      <Button title="Add idol" onPress={() => navigation.navigate('add')}></Button>
     </View>
   );
 };
