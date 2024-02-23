@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Alert, ScrollView, Text } from "react-native";
+import { Alert, ScrollView } from "react-native";
 import IdolDataForm from "../../components/IdolDataForm";
 import { DBContext } from "../../context/DBContext";
 
@@ -26,7 +26,7 @@ const EditIdol = ({ route, navigation }) => {
         [
           {
             text: "OK",
-            onPress: () => navigation.navigate("get"),
+            onPress: () => navigation.goBack(),
           },
         ]
       );
