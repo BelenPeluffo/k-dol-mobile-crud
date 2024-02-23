@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { IdolServices } from "../../database/IdolServices";
-import { DB } from "../../database/db";
-
+import React, { useContext, useEffect, useState } from "react";
+import { DBContext } from "../../context/DBContext";
 const GetIdols = () => {
-  const idolService = new IdolServices(DB);
   const [idols, setIdols] = useState([]);
+  const { idolService } = useContext(DBContext);
 
   useEffect(() => {
     const idols = idolService.getAll();
     console.log("idols", idols);
     setIdols(idols);
-  },[])
+  }, []);
 
   return typeof idols !== "string" ? (
     idols.map((idol) => <Text>{idol.name}</Text>)

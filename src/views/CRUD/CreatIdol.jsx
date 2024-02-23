@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { ScrollView, Text, TextInput, Button, View } from "react-native";
 import { createPlanetPlacementsDropdownList } from "../../utils/createDropdownList";
-import { IdolServices } from "../../database/IdolServices";
-import { DB } from "../../database/db";
+import { DBContext } from "../../context/DBContext";
 
 const CreatIdol = () => {
-  const idolService = new IdolServices(DB);
   const [idolData, setIdolData] = useState({
     name: "",
     sun: "",
     moon: "",
   });
+  const { createIdol } = useContext(DBContext);
 
   const handleNameChange = (name) => {
     console.log('name', name);
@@ -43,7 +42,7 @@ const CreatIdol = () => {
       </View>
       <Button
         title="Add idol"
-        onPress={() => idolService.create(idolData)}
+        onPress={() => createIdol(idolData)}
       ></Button>
       {idolData && (
         <Text>
