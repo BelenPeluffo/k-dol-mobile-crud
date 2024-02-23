@@ -1,8 +1,20 @@
-import React from "react";
-import { Text } from "react-native";
+import React, { useContext } from "react";
+import { ScrollView, Text } from "react-native";
+import { DBContext } from "../../context/DBContext";
 
 const Idols = () => {
-  return <Text>Idols</Text>;
+  const { idols } = useContext(DBContext);
+  console.log("idols", idols);
+
+  return (
+    <ScrollView>
+      {idols.length > 0 ? (
+        idols.map((idol) => <Text>{idol.name}</Text>)
+      ) : (
+        <Text>There are no idols in your DB.</Text>
+      )}
+    </ScrollView>
+  );
 };
 
 export default Idols;
