@@ -8,7 +8,9 @@ export const DBProvider = ({ children }) => {
   const createIdol = (idol) => {
     console.log("create Idol");
     idolService.create(idol);
+    return 1;
   };
+
   return (
     <DBContext.Provider value={{ createIdol }}>{children}</DBContext.Provider>
   );
