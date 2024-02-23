@@ -29,25 +29,13 @@ const CreatIdol = () => {
       <Text>Name</Text>
       <TextInput placeholder="Name" />
       {placementsList.map((dropdown) => dropdown)}
+      <Button title="Add idol" onPress={() => navigation.navigate('add')}></Button>
       {idolData && (
         <Text>
           {Object.keys(idolData).map((data) => `${data}: ${idolData[data]}\n`)}
         </Text>
       )}
     </ScrollView>
-    // <View style={{ padding: 10 }}>
-    // <Text style={{ fontSize: 20, justifyContent: "center" }}>
-    //   Idol's astro data
-    // </Text>
-    // <Text>Name</Text>
-    // <TextInput placeholder="Name" />
-    // {placementsList.map((dropdown) => dropdown)}
-    // {idolData && (
-    //   <Text>
-    //     {Object.keys(idolData).map((data) => `${data}: ${idolData[data]}\n`)}
-    //   </Text>
-    // )}
-    // </View>
   );
 };
 
