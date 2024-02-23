@@ -3,14 +3,17 @@ import { ScrollView, Text } from "react-native";
 import { DBContext } from "../../context/DBContext";
 import IdolDataAccordion from "../../components/IdolDataAccordion";
 
-const Idols = () => {
+const Idols = ({ navigation }) => {
   const { idols } = useContext(DBContext);
-  console.log("idols", idols);
+  
+  const handleNavigation = (view, idol) => {
+    navigation.navigate(view, { id: idol.id });
+  }
 
   return (
     <ScrollView style={{ padding: 10 }}>
       {idols.length > 0 ? (
-        <IdolDataAccordion idols={idols} />
+        <IdolDataAccordion idols={idols} onNavigate={handleNavigation} />
       ) : (
         <Text>There are no idols in your DB.</Text>
       )}
