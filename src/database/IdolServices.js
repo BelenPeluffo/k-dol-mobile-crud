@@ -14,6 +14,13 @@ export class IdolServices {
     this.db.push({ id: this.db.length + 1, ...idol });
     console.log("database", this.db);
   }
-  update(idol) {}
+  update(idol) {
+    console.log("Editing idol");
+    this.db.filter((item) => {
+      if (item.id == idol.id) {
+        console.log('We gound your idol');
+      } 
+    })
+  }
   delete(id) {}
 }

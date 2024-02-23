@@ -19,13 +19,23 @@ export const DBProvider = ({ children }) => {
     return 1;
   };
 
+  const editIdol = (idol) => {
+    idolService.update(idol);
+  };
+
   function getAllIdols() {
     console.log("get all idols");
     return idolService.getAll();
+  }
+
+  const getIdol = (idolId) => {
+    idolService.get(idolId);
   };
 
   return (
-    <DBContext.Provider value={{ createIdol, getAllIdols, idols }}>
+    <DBContext.Provider
+      value={{ createIdol, getAllIdols, getIdol, editIdol, idols }}
+    >
       {children}
     </DBContext.Provider>
   );

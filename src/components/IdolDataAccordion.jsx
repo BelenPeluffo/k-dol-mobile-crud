@@ -20,7 +20,7 @@ const IdolDataAccordion = ({ idols, onNavigate }) => {
             : null
         )}
       </Text>
-      <Button title="Edit" onPress={() => onNavigate("add", idol)}></Button>
+      <Button title="Edit" onPress={() => onNavigate("edit", idol)}></Button>
     </View>
   );
 

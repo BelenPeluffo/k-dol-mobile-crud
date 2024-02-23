@@ -5,6 +5,7 @@ import CRUD from "../views/CRUD";
 import Idols from "../views/CRUD/Idols";
 import CreatIdol from "../views/CRUD/CreatIdol";
 import { DBProvider } from "../context/DBProvider";
+import EditIdol from "../views/CRUD/EditIdol";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,11 @@ export const AppNavigation = () => {
             name="add"
             component={CreatIdol}
             options={{ title: "Add a new idol to your DB" }}
+          />
+          <Stack.Screen
+            name="edit"
+            component={EditIdol}
+            options={{ title: "Edit data" }}
           />
         </Stack.Navigator>
       </DBProvider>
