@@ -8,6 +8,7 @@ export const createPlanetPlacementsDropdownList = (handler) => {
       label={`${position.label} sign`}
       options={signs}
       setValue={handler(position.label.toLowerCase())}
+      key={position.value}
     />
   ));
 };

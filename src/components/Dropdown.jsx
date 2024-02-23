@@ -6,7 +6,7 @@ const Dropdown = ({ label, options, setValue }) => {
   const [option, setOption] = useState(0);
 
   return (
-    <View>
+    <View style={{ width: "50%" }}>
       <Text>{label}</Text>
       <RNPickerSelect
         placeholder={{ id: 0, label: `Select ${label.toLowerCase()}` }}

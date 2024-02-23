@@ -52,7 +52,14 @@ const CreatIdol = ({ navigation }) => {
         placeholder="Name"
         onChangeText={(value) => handleNameChange(value)}
       />
-      <View style={{ padding: 10 }}>
+      <View
+        style={{
+          padding: 10,
+          width: "100%",
+          flexDirection: "row",
+          flexWrap: "wrap",
+        }}
+      >
         {placementsList.map((dropdown) => dropdown)}
       </View>
       <Button title="Add idol" onPress={handleCreate}></Button>
