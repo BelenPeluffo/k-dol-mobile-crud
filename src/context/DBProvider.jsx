@@ -19,6 +19,10 @@ export const DBProvider = ({ children }) => {
     return 1;
   };
 
+  const deleteIdol = (idolId) => {
+    idolService.delete(idolId);
+  }
+
   const editIdol = (idol) => {
     idolService.update(idol);
     return 1;
@@ -35,7 +39,7 @@ export const DBProvider = ({ children }) => {
 
   return (
     <DBContext.Provider
-      value={{ createIdol, getAllIdols, getIdol, editIdol, idols }}
+      value={{ createIdol, deleteIdol, getAllIdols, getIdol, editIdol, idols }}
     >
       {children}
     </DBContext.Provider>

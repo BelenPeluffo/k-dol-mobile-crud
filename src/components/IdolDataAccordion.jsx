@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Button, Text, View } from "react-native";
 import Accordion from "react-native-collapsible/Accordion";
 import { translatateValue } from "../utils/translateValue";
+import { DBContext } from "../context/DBContext";
 
 const IdolDataAccordion = ({ idols, onNavigate }) => {
+  const { deleteIdol } = useContext(DBContext);
   const [selectedIdol, setSelectedIdol] = useState([]);
   const idolName = (idol) => (
     <View style={{ paddingBottom: 10 }}>
@@ -12,7 +14,7 @@ const IdolDataAccordion = ({ idols, onNavigate }) => {
   );
 
   const idolPlacements = (idol) => (
-    <View>
+    <View style={{ width: "100%" }}>
       <Text style={{ fontSize: 20 }}>
         {Object.keys(idol).map((property) =>
           property != "name" && property != "id"
@@ -20,7 +22,16 @@ const IdolDataAccordion = ({ idols, onNavigate }) => {
             : null
         )}
       </Text>
-      <Button title="Edit" onPress={() => onNavigate("edit", idol)}></Button>
+      <View style={{ width: "100%", flexDirection: "row" }}>
+        <Button
+          title="Edit"
+          onPress={() => onNavigate("edit", idol)}
+        ></Button>
+        <Button
+          title="Delete"
+          onPress={() => deleteIdol(idol.id)}
+        ></Button>
+      </View>
     </View>
   );
 

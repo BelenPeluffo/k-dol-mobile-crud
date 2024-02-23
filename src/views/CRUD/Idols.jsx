@@ -5,13 +5,13 @@ import IdolDataAccordion from "../../components/IdolDataAccordion";
 
 const Idols = ({ navigation }) => {
   const { idols } = useContext(DBContext);
-  
+
   const handleNavigation = (view, idol) => {
     navigation.navigate(view, { id: idol.id });
-  }
+  };
 
   return (
-    <ScrollView style={{ padding: 10 }}>
+    <ScrollView style={{ padding: 10, width: "100%" }}>
       {idols.length > 0 ? (
         <IdolDataAccordion idols={idols} onNavigate={handleNavigation} />
       ) : (
