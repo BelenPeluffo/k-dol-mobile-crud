@@ -9,9 +9,9 @@ const EditIdol = ({ route, navigation }) => {
   const [idolData, setIdolData] = useState();
 
   useEffect(() => {
-    console.log('We doing this shit');
+    console.log("We doing this shit");
     const dataToUpdate = getIdol(id);
-    console.log('dataToUpdate', dataToUpdate);
+    console.log("dataToUpdate", dataToUpdate);
     setIdolData(dataToUpdate);
   }, []);
 
@@ -26,6 +26,7 @@ const EditIdol = ({ route, navigation }) => {
         actionType="create"
         onAction={handleEdit}
         setData={setIdolData}
+        initialValues={idolData ? idolData : null}
       />
     </ScrollView>
   );

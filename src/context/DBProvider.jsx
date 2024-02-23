@@ -29,7 +29,7 @@ export const DBProvider = ({ children }) => {
   }
 
   const getIdol = (idolId) => {
-    idolService.get(idolId);
+    return idolService.get(idolId);
   };
 
   return (

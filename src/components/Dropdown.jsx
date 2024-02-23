@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import RNPickerSelect from "react-native-picker-select";
 import { Text, View } from "react-native";
 
-const Dropdown = ({ label, options, setValue }) => {
+const Dropdown = ({ label, options, setValue, initialValue }) => {
   const [option, setOption] = useState(0);
 
   return (
@@ -15,7 +15,7 @@ const Dropdown = ({ label, options, setValue }) => {
           setOption(value);
           setValue(value);
         }}
-        value={option || 0}
+        value={initialValue || option || 0}
       />
     </View>
   );

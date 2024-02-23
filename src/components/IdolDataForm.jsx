@@ -2,9 +2,11 @@ import React from "react";
 import { Button, Text, TextInput, View } from "react-native";
 import { createPlanetPlacementsDropdownList } from "../utils/createDropdownList";
 
-const IdolDataForm = ({ actionType, onAction, setData }) => {
-  const placementsList =
-    createPlanetPlacementsDropdownList(handleDropdownChange);
+const IdolDataForm = ({ actionType, onAction, setData, initialValues }) => {
+  const placementsList = createPlanetPlacementsDropdownList(
+    handleDropdownChange,
+    initialValues
+  );
 
   const handleNameChange = (name) => {
     console.log("name", name);

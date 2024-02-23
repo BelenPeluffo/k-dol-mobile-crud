@@ -1,10 +1,12 @@
-
 export class IdolServices {
   constructor(database) {
     this.db = database;
     console.log("constructor database", this.db);
   }
-  get(id) {}
+  get(id) {
+    console.log("Getting idol");
+    return this.db.filter((item) => item.id == id)[0];
+  }
   getAll() {
     console.log("database", this.db);
     return this.db;
@@ -18,9 +20,9 @@ export class IdolServices {
     console.log("Editing idol");
     this.db.filter((item) => {
       if (item.id == idol.id) {
-        console.log('We gound your idol');
-      } 
-    })
+        console.log("We gound your idol");
+      }
+    });
   }
   delete(id) {}
 }
