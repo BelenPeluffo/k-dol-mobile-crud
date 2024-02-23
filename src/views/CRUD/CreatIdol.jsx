@@ -1,14 +1,21 @@
 import React, { useState } from "react";
-import { ScrollView, Text, TextInput, View } from "react-native";
-import Dropdown from "../../components/Dropdown";
-import { signs } from "../../constants/signs";
+import { ScrollView, Text, TextInput, Button, View } from "react-native";
 import { createPlanetPlacementsDropdownList } from "../../utils/createDropdownList";
+import { IdolServices } from "../../database/IdolServices";
+import { DB } from "../../database/db";
 
 const CreatIdol = () => {
+  const idolService = new IdolServices(DB);
   const [idolData, setIdolData] = useState({
+    name: "",
     sun: "",
     moon: "",
   });
+
+  const handleNameChange = (name) => {
+    console.log('name', name);
+    setIdolData((current) => ({ ...current, name }));
+  };
 
   const handleDropdownChange = (property) => {
     return (value) =>
@@ -27,9 +34,17 @@ const CreatIdol = () => {
         Idol's astro data
       </Text>
       <Text>Name</Text>
-      <TextInput placeholder="Name" />
-      {placementsList.map((dropdown) => dropdown)}
-      <Button title="Add idol" onPress={() => navigation.navigate('add')}></Button>
+      <TextInput
+        placeholder="Name"
+        onChangeText={(value) => handleNameChange(value)}
+      />
+      <View style={{ padding: 10 }}>
+        {placementsList.map((dropdown) => dropdown)}
+      </View>
+      <Button
+        title="Add idol"
+        onPress={() => idolService.create(idolData)}
+      ></Button>
       {idolData && (
         <Text>
           {Object.keys(idolData).map((data) => `${data}: ${idolData[data]}\n`)}
