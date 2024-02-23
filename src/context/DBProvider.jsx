@@ -21,6 +21,7 @@ export const DBProvider = ({ children }) => {
 
   const editIdol = (idol) => {
     idolService.update(idol);
+    return 1;
   };
 
   function getAllIdols() {

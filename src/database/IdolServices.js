@@ -18,11 +18,18 @@ export class IdolServices {
   }
   update(idol) {
     console.log("Editing idol");
-    this.db.filter((item) => {
-      if (item.id == idol.id) {
-        console.log("We gound your idol");
+    this.delete(idol.id);
+    this.db.push(idol);
+    console.log("updated database", this.db);
+  }
+  delete(id) {
+    let idolIndex;
+    this.db.forEach((item, index) => {
+      if (item.id == id) {
+        idolIndex = index;
+        console.log("idolIndex", idolIndex);
       }
     });
+    this.db.splice(idolIndex, 1);
   }
-  delete(id) {}
 }

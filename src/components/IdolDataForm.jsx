@@ -30,6 +30,7 @@ const IdolDataForm = ({ actionType, onAction, setData, initialValues }) => {
       <TextInput
         placeholder="Name"
         onChangeText={(value) => handleNameChange(value)}
+        value={initialValues?.name ?? ""}
       />
       <View
         style={{

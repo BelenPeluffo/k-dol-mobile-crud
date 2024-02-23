@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { ScrollView, Text } from "react-native";
+import { Alert, ScrollView, Text } from "react-native";
 import IdolDataForm from "../../components/IdolDataForm";
 import { DBContext } from "../../context/DBContext";
 
 const EditIdol = ({ route, navigation }) => {
-  const { getIdol } = useContext(DBContext);
+  const { getIdol, editIdol } = useContext(DBContext);
   const { id } = route.params;
   const [idolData, setIdolData] = useState();
 
@@ -17,13 +17,25 @@ const EditIdol = ({ route, navigation }) => {
 
   console.log("idolData", idolData);
 
-  const handleEdit = () => {};
+  const handleEdit = () => {
+    const response = editIdol(idolData);
+    response > 0 &&
+      Alert.alert(
+        `${idolData.name} data was updated successfully`,
+        "You'll be redirected to Idols list",
+        [
+          {
+            text: "OK",
+            onPress: () => navigation.navigate("get"),
+          },
+        ]
+      );
+  };
 
   return (
     <ScrollView style={{ padding: 10 }}>
-      <Text>{id ? id : null}</Text>
       <IdolDataForm
-        actionType="create"
+        actionType="edit"
         onAction={handleEdit}
         setData={setIdolData}
         initialValues={idolData ? idolData : null}
