@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { ScrollView, Alert } from "react-native";
 import { DBContext } from "../../context/DBContext";
 import IdolDataForm from "../../components/IdolDataForm";
+import { StackActions } from "@react-navigation/native";
 
 const CreatIdol = ({ navigation }) => {
   const { createIdol } = useContext(DBContext);
@@ -17,7 +18,10 @@ const CreatIdol = ({ navigation }) => {
         [
           {
             text: "OK",
-            onPress: () => navigation.navigate("get"),
+            onPress: () => {
+              navigation.dispatch(StackActions.pop(1));
+              navigation.navigate("get");
+            },
           },
         ]
       );
