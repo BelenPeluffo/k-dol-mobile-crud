@@ -23,9 +23,8 @@ const CreatIdol = () => {
       </Text>
       <Text>Name</Text>
       <TextInput placeholder="Name" />
-      {/* <Text>Sun sign</Text> */}
       <Dropdown
-        label={"Sun sign"}
+        label="Sun sign"
         options={signs}
         setValue={handleDropdownChange("sun")}
       />

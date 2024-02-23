@@ -17,7 +17,7 @@ const Dropdown = ({ label, options, setValue }) => {
         }}
         value={option || 0}
       />
-      {option && <Text>Option: {option}</Text>}
+      <Text>Option: {option ? option : 'none' }</Text>
     </View>
   );
 };
