@@ -7,9 +7,7 @@ export class IdolServices {
   get(id) {}
   getAll() {
     console.log("database", this.db);
-    return this.db.length > 0
-      ? this.db
-      : "There are no Idols in your database.";
+    return this.db;
   }
   create(idol) {
     console.log("creating idol");
