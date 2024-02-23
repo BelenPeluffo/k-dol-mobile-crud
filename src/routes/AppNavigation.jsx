@@ -13,10 +13,26 @@ export const AppNavigation = () => {
     <NavigationContainer>
       <DBProvider>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={LandingView} />
-          <Stack.Screen name="CRUD" component={CRUD} />
-          <Stack.Screen name="get" component={Idols} />
-          <Stack.Screen name="add" component={CreatIdol} />
+          <Stack.Screen
+            name="Home"
+            component={LandingView}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="CRUD"
+            component={CRUD}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="get"
+            component={Idols}
+            options={{ title: "Idols DB" }}
+          />
+          <Stack.Screen
+            name="add"
+            component={CreatIdol}
+            options={{ title: "Add a new idol to your DB" }}
+          />
         </Stack.Navigator>
       </DBProvider>
     </NavigationContainer>
